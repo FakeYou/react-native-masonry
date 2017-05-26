@@ -80,7 +80,10 @@ export function _getImageTag (image, gutter = 0) {
         key={image.uri}
         source={{ uri: image.uri }}
         resizeMethod='auto'
-        style={{ width: image.width, height: image.height, marginTop: gutter }} />
+        style={{ width: image.width, height: image.height, marginTop: gutter }
+      >
+	  {image.children}
+      </Image>
   );
 }
 
