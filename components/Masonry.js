@@ -17,12 +17,16 @@ const containMatchingUris = (r1, r2) => isEqual(r1.map(brick => brick.uri), r2.m
 export default class Masonry extends Component {
   static propTypes = {
     bricks: PropTypes.array,
-    columns: PropTypes.number
+    columns: PropTypes.number,
+    gutter: PropTypes.number,
+    contentPadding: PropTypes.number,
   };
 
   static defaultProps = {
     bricks: [],
-    columns: 2
+    columns: 2,
+    gutter: 15,
+    contentPadding: 0,
   };
 
   constructor(props) {
@@ -101,7 +105,13 @@ export default class Masonry extends Component {
  	    <ListView
          contentContainerStyle={styles.masonry__container}
          dataSource={this.state.dataSource}
-         renderRow={(data) => <Column data={data} columns={this.props.columns} parentDimensions={this.state.dimensions}/> }
+         renderRow={(data) => <Column
+          data={data}
+          gutter={this.props.gutter}
+          contentPadding={this.props.contentPadding}
+          columns={this.props.columns}
+          parentDimensions={this.state.dimensions}
+        />}
        />
   	</View>
     )
