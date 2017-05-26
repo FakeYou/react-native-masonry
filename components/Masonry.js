@@ -103,6 +103,7 @@ export default class Masonry extends Component {
     return (
   	<View onLayout={(event) => this._setParentDimensions(event)}>
  	    <ListView
+         enableEmptySections
          contentContainerStyle={styles.masonry__container}
          dataSource={this.state.dataSource}
          renderRow={(data) => <Column
