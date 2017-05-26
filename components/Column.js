@@ -88,6 +88,7 @@ export function _getTouchableUnit (image, gutter = 0, contentPadding = 0) {
   return (
       <TouchableOpacity
          key={image.uri}
+         activeOpacity={0.7}
          onPress={() => image.onPress(image)}>
             { _getImageTag(image, gutter, contentPadding) }
       </TouchableOpacity>
